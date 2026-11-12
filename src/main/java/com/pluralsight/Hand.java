@@ -49,7 +49,7 @@ public class Hand {
 
     // Same flip / read / flip pattern, printing instead of adding
     public void print() {
-        System.out.println("Cards in Hand:");
+        System.out.println("Cards in " + name + "'s Hand:");
         for (Card card : cards) {
             card.flip();
             System.out.println(card.getValue() + " of " + card.getSuit());
