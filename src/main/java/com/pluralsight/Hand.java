@@ -47,6 +47,10 @@ public class Hand {
         return value;
     }
 
+    public int getDistanceFrom21() {
+        return 21 - getValue();
+    }
+
     // Same flip / read / flip pattern, printing instead of adding
     public void print() {
         System.out.println("Cards in " + name + "'s Hand:");
