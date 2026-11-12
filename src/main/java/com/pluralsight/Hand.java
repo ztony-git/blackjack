@@ -12,8 +12,14 @@ import java.util.ArrayList;
  */
 public class Hand {
     private ArrayList<Card> cards;
+    private String name;
 
     public Hand() {
+        cards = new ArrayList<>();
+    }
+
+    public Hand(String name) {
+        this.name = name;
         cards = new ArrayList<>();
     }
 
