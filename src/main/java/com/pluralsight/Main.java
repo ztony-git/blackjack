@@ -1,6 +1,7 @@
 package com.pluralsight;
 
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -18,19 +19,44 @@ public class Main {
             hands.add(player);
         }
 
-//        Hand player1 = new Hand("T");
-//        Hand player2 = new Hand("A");
-//        hands.add(player1);
-//        hands.add(player2);
-
         Deck deck = new Deck();
         deck.shuffle();
 
+        // main game
         for (Hand hand : hands) {
             hand.deal(deck.deal());
             hand.deal(deck.deal());
             hand.print();
             System.out.println("Value: " + hand.getValue());
+
+            String option = "";
+
+            do {
+                if (hand.getValue() == 21) {
+                    System.out.println("Blackjack!");
+                    break;
+                }
+
+                System.out.println(hand.getName() + " Hit or Stay: ");
+                option = scanner.nextLine();
+
+                switch (option.toLowerCase()) {
+                    case "hit" -> {
+                        hand.deal(deck.deal());
+
+                        hand.print();
+                        System.out.println("Value: " + hand.getValue());
+
+                        if(hand.getValue() > 21) {
+                            System.out.println("Bust!");
+                            option = "Stay";
+                        }
+
+                    }
+                }
+
+            } while (!option.equalsIgnoreCase("stay"));
+            System.out.println("--------------------------------");
         }
 
         int closest = 100;
