@@ -33,6 +33,10 @@ public class Hand {
         return cards.size();
     }
 
+    public String getName() {
+        return name;
+    }
+
     // The Hand uses the methods of each card to determine
     // the value of each card - and adds up all values
     public int getValue() {
